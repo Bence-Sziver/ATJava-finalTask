@@ -25,7 +25,7 @@ public class LoginPage extends BasePage {
     private WebElement errorMessage;
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 

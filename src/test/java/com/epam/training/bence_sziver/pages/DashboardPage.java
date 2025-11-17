@@ -10,7 +10,7 @@ public class DashboardPage extends BasePage {
     private WebElement title;
 
     public DashboardPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 
