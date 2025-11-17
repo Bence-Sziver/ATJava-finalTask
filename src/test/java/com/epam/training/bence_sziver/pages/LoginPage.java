@@ -1,9 +1,12 @@
 package com.epam.training.bence_sziver.pages;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,12 +38,14 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage typeUsername(String username) {
+        wait.until(ExpectedConditions.visibilityOf(usernameField));
         usernameField.sendKeys(username);
         log.info("Username entered: {}", usernameField.getText());
         return this;
     }
 
     public LoginPage typePassword(String password) {
+        wait.until(ExpectedConditions.visibilityOf(passwordField));
         passwordField.sendKeys(password);
         log.info("Password entered: {}", passwordField.getText());
         return this;
@@ -48,12 +53,14 @@ public class LoginPage extends BasePage {
 
     public LoginPage clearUsername() {
         usernameField.clear();
+        wait.until(ExpectedConditions.attributeToBe(usernameField, "value", ""));
         log.info("Username cleared");
         return this;
     }
 
     public LoginPage clearPassword() {
         passwordField.clear();
+        wait.until(ExpectedConditions.attributeToBe(passwordField, "value", ""));
         log.info("Password cleared");
         return this;
     }
