@@ -20,7 +20,7 @@ public class LoginSteps {
     public void setUp() {
         // Change browser to "edge" to test on Edge
         // Change browser to "firefox" to test on Firefox
-        driver = DriverManager.createDriver("edge");
+        driver = DriverManager.createDriver("firefox");
         loginPage = new LoginPage(driver);
     }
 
