@@ -1,4 +1,4 @@
-package com.epam.training.bence_sziver.tests.steps;
+package com.epam.training.bence_sziver.tests;
 
 import com.epam.training.bence_sziver.DriverManager;
 import com.epam.training.bence_sziver.pages.DashboardPage;
@@ -6,8 +6,7 @@ import com.epam.training.bence_sziver.pages.LoginPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +27,7 @@ public class LoginSteps {
         driver.quit();
     }
 
-    @Given("I am on the logging page")
+    @Given("I am on the login page")
     public void isOnLoginPage() {
         loginPage.openPage();
     }
