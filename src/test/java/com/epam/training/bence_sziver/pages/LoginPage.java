@@ -5,8 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
-    private WebDriver driver;
+public class LoginPage extends BasePage {
     private static final String url = "https://www.saucedemo.com/";
 
     @FindBy(xpath = "//input[@id='user-name']")
@@ -50,8 +49,9 @@ public class LoginPage {
         return this;
     }
 
-    public void login() {
+    public BasePage login() {
         loginButton.click();
+        return new DashboardPage(driver);
     }
 
     public String checkLoginError() {
