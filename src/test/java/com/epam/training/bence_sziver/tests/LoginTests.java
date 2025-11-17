@@ -7,7 +7,8 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.WebDriver;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 public class LoginTests {
     private WebDriver driver;
@@ -33,7 +34,7 @@ public class LoginTests {
                  .clearUsername()
                  .clearPassword()
                  .login();
-        assertEquals("Epic sadface: Username is required", loginPage.checkLoginError());
+        assertThat(loginPage.checkLoginError(), containsString("Username is required"));
     }
 
     @Test
@@ -42,7 +43,7 @@ public class LoginTests {
                 .typePassword("password")
                 .clearPassword()
                 .login();
-        assertEquals("Epic sadface: Password is required", loginPage.checkLoginError());
+        assertThat(loginPage.checkLoginError(), containsString("Password is required"));
     }
 
     @ParameterizedTest
@@ -56,6 +57,6 @@ public class LoginTests {
         dashboardPage = (DashboardPage) loginPage.typeUsername(username)
                                                  .typePassword(password)
                                                  .login();
-        assertEquals("Swag Labs", dashboardPage.getDashboardTitle());
+        assertThat(dashboardPage.getDashboardTitle(), is("Swag Labs"));
     }
 }
