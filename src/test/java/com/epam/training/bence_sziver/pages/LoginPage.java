@@ -30,9 +30,31 @@ public class LoginPage {
         driver.get(url);
     }
 
-    public void login(String username, String password) {
+    public LoginPage typeUsername(String username) {
         usernameField.sendKeys(username);
+        return this;
+    }
+
+    public LoginPage typePassword(String password) {
         passwordField.sendKeys(password);
+        return this;
+    }
+
+    public LoginPage clearUsername() {
+        usernameField.clear();
+        return this;
+    }
+
+    public LoginPage clearPassword() {
+        passwordField.clear();
+        return this;
+    }
+
+    public void login() {
         loginButton.click();
+    }
+
+    public String checkLoginError() {
+        return errorMessage.getText();
     }
 }
