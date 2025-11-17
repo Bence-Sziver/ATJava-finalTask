@@ -7,6 +7,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverManager {
 
+    /** @param browser this value determines which browser to test on
+     *                 change this value when calling the method */
     public static WebDriver createDriver(String browser) {
         if (browser.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
