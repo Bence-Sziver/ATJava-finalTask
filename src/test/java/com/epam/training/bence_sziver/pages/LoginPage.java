@@ -1,7 +1,9 @@
 package com.epam.training.bence_sziver.pages;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -17,6 +19,9 @@ public class LoginPage {
 
     @FindBy(xpath = "//input[@id='login-button']")
     private WebElement loginButton;
+
+    @FindBy(xpath = "//h3[@data-test='error']")
+    private WebElement errorMessage;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
