@@ -33,4 +33,13 @@ public class LoginTests {
                  .login();
         assertEquals("Epic sadface: Username is required", loginPage.checkLoginError());
     }
+
+    @Test
+    public void testEmptyPassword() {
+        loginPage.typeUsername("username")
+                .typePassword("password")
+                .clearPassword()
+                .login();
+        assertEquals("Epic sadface: Password is required", loginPage.checkLoginError());
+    }
 }
