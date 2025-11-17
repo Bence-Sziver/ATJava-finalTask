@@ -16,7 +16,6 @@ import static org.hamcrest.Matchers.*;
 public class LoginTests {
     private WebDriver driver;
     private LoginPage loginPage;
-    private DashboardPage dashboardPage;
     private static final Logger log = LoggerFactory.getLogger(LoginTests.class);
 
     @BeforeEach
@@ -63,9 +62,9 @@ public class LoginTests {
                 "'visual_user', 'secret_sauce"})
     public void testValidCredentials(String username, String password) {
         log.info("Start Test: testValidCredentials with username: {}, password: {}", username, password);
-        dashboardPage = (DashboardPage) loginPage.typeUsername(username)
-                                                 .typePassword(password)
-                                                 .login();
+        DashboardPage dashboardPage = (DashboardPage) loginPage.typeUsername(username)
+                                                               .typePassword(password)
+                                                               .login();
         assertThat(dashboardPage.getDashboardTitle(), is("Swag Labs"));
         log.info("End Test: testValidCredentials with username: {}, password: {}", username, password);
     }
