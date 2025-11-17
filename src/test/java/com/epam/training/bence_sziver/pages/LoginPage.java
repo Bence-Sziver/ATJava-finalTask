@@ -1,6 +1,5 @@
 package com.epam.training.bence_sziver.pages;
 
-import com.epam.training.bence_sziver.tests.LoginTests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -59,7 +58,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public BasePage login() {
+    public DashboardPage login() {
         loginButton.click();
         log.info("Login button clicked");
         return new DashboardPage(driver);

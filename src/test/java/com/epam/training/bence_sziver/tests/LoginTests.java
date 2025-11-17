@@ -62,7 +62,7 @@ public class LoginTests {
                 "'visual_user', 'secret_sauce"})
     public void testValidCredentials(String username, String password) {
         log.info("Start Test: testValidCredentials with username: {}, password: {}", username, password);
-        DashboardPage dashboardPage = (DashboardPage) loginPage.typeUsername(username)
+        DashboardPage dashboardPage = loginPage.typeUsername(username)
                                                                .typePassword(password)
                                                                .login();
         assertThat(dashboardPage.getDashboardTitle(), is("Swag Labs"));
