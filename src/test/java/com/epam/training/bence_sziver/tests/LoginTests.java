@@ -1,10 +1,9 @@
 package com.epam.training.bence_sziver.tests;
 
+import com.epam.training.bence_sziver.DriverManager;
 import com.epam.training.bence_sziver.pages.LoginPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginTests {
@@ -13,8 +12,7 @@ public class LoginTests {
 
     @BeforeEach
     public void setUp() {
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
+        driver = DriverManager.createDriver("edge");
         loginPage = new LoginPage(driver);
         loginPage.openPage();
     }
